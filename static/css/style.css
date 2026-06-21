@@ -240,11 +240,17 @@ a {
 #btnn {
   background: linear-gradient(90deg ,#10acf4, #144076);
   color: black;
-  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
   font-weight: bold;
   border-radius: 5px;
-  margin: 500px;
-  width: 100px;
+  margin: 0 auto 25px;
+  width: fit-content;
+  min-width: 200px;
+  text-decoration: none;
+  white-space: nowrap;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
