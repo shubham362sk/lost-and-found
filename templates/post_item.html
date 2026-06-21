@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post Item | Lost & Found</title>
+  <link rel="icon" type="image/png" href="static/logo.png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Post Lost or Found Item</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <label>Type:</label><br>
+      <select name="item_type" required>
+        <option value="">-- Select --</option>
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+      </select><br><br>
+
+      <input type="text" name="title" placeholder="Item Title" required><br>
+      <textarea name="description" placeholder="Describe the item..." required></textarea><br>
+
+      <label>Attachment (Image/Video):</label><br>
+      <input type="file" name="attachment" accept="image/*,video/mp4"><br><br>
+
+      <input type="email" name="contact_email" placeholder="Your Email" required><br>
+      <input type="tel" name="contact_number" placeholder="Your Phone Number" required><br>
+
+      <button type="submit" id="login">Post</button>
+    </form>
+
+    <p><a href="{{ url_for('dashboard') }}">← Back to Dashboard</a></p>
+  </div>
+</body>
+</html>

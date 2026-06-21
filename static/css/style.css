@@ -1,0 +1,452 @@
+html, body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container {
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  margin: 50px auto;
+  background: #fff;
+  padding: 100px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  flex: 1;
+}
+
+.container h2{
+  color:#0056b3;
+}
+
+input, select, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+}
+
+.delete-icon img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.delete-icon img:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+#login {
+  background: linear-gradient(90deg, #144076, #10acf4);
+  color: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 150px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#login:hover {
+  box-shadow: -5px -5px 23px #00f0ff, 5px 5px 23px #0c2749;
+  transform: scale(1.05);
+}
+
+.flash {
+  color: red;
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: #007bff;
+}
+
+@font-face {
+      font-family: 'Ink Free';
+      src: local('Ink Free'), url('https://fonts.cdnfonts.com/s/19152/Inkfree.woff') format('woff');
+  }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0c2749;
+  padding: 30px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-title {
+  font-family: 'Ink Free', cursive;
+  font-size: 24pt;
+  color: #10acf4;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.right-buttons button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.right-buttons button:hover {
+  text-decoration: none;
+}
+
+.right-buttons a {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.right-buttons a:hover {
+  text-decoration: none;
+}
+
+.main-layout {
+  display: flex;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  margin-right: 20px;
+  height: fit-content;
+}
+
+.sidebar .sidebar-footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: gray;
+  text-align: center;
+}
+
+.feed {
+  flex-grow: 1;
+}
+
+.media-preview img, .media-preview video {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.claim-btn {
+  background: linear-gradient(90deg, #085c1c, #28a745);
+  color: rgb(255, 255, 255);
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: dotted;
+  width: 50px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  font-family :Verdana, Geneva, Tahoma, sans-serif
+}
+
+.claim-btn:hover {
+  box-shadow: -2px -2px 23px #519c18, 4px 4px 23px #25c11d;
+  transform: scale(1.05);
+}
+
+.dlt-btn {
+  background: linear-gradient(90deg, #5c0808, #a72828);
+  color: rgb(255, 255, 255);
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: dotted;
+  width: 50px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.dlt-btn:hover {
+  box-shadow: -2px -2px 23px #9c1818, 4px 4px 23px #c11d1d;
+  transform: scale(1.05);
+}
+
+.bt {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+
+}
+
+.post-btn:hover{
+  box-shadow: -5px -5px 23px #b70b6a,
+  5px 5px 23px #00f0ff;
+}
+
+#btnn {
+  background: linear-gradient(90deg ,#10acf4, #144076);
+  color: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 500px;
+  width: 100px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#btnn:hover {
+  box-shadow: -5px -5px 23px #00f0ff, 5px 5px 23px #0c2749;
+  transform: scale(1.05);
+}
+
+#lif{
+  color: #174c8d;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+#about-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.flash {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.flash li {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flash li.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash li.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+#sb {
+  background: linear-gradient(90deg, #085c1c, #28a745);
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 150px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  display: block;
+  margin: 30px auto;
+}
+
+#sb:hover {
+  box-shadow: -5px -5px 23px #519c18, 4px 4px 23px #25c11d;
+  transform: scale(1.05);
+}
+
+.claim-form-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 80px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 90%;
+
+}
+
+.claim-form-container h2 {
+  text-align: center;
+  color: #13751f;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.claim-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.claim-form-container label {
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.claim-form-container input,
+.claim-form-container textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.claim-form-container input:focus,
+.claim-form-container textarea:focus {
+  outline: none;
+  border-color: #0c2749;
+}
+
+.claim-form-container button {
+  margin-top: 30px;
+  padding: 12px;
+  background-color: #0c2749;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.claim-form-container button:hover {
+  background-color: #093469;
+}
+
+@media (max-width: 600px) {
+  .claim-form-container {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .claim-form-container h2 {
+    font-size: 20px;
+  }
+}
+
+.footer {
+  background-color: #0c2749;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.footer .tagline {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.footer-info strong {
+  color: #ff1100;
+}
+
+.footer a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+.main-layout {
+  flex: 1;
+}
+
+.feed {
+  flex-grow: 1;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.items-grid .card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}

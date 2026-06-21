@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Lost & Found</title>
+  <link rel="icon" type="image/png" href="static/logo.png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-title">LOST & FOUND</div>
+    <div class="right-buttons">
+      <button onclick="showAboutProject()">About Project</button>
+      <button onclick="showAboutMe()">About Me</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Login</h2>
+    <form method="POST" action="{{ url_for('login') }}">
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit" id="login">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <div id="about-container" class="modal hidden">
+    <div id="about-content">
+      <span class="close-btn" onclick="hideAbout()">×</span>
+      <div id="about-inner"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="tagline">Lost & Found Portal - Helping people reconnect with their belongings.</p>
+    <div class="footer-info">
+      <span>Developed by <strong>Shubham Kumar</strong></span>
+      <span class="social-links">
+        <a href="connect.shubham.work@gmail.com" target="_blank">Email</a> |
+        <a href="https://www.linkedin.com/in/shubhamk0306" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/shub0mb" target="_blank">GitHub</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function showAboutProject() {
+      fetch("{{ url_for('static', filename='about_project.html') }}")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("about-inner").innerHTML = data;
+          document.getElementById("about-container").classList.remove("hidden");
+        });
+    }
+
+    function showAboutMe() {
+      fetch("{{ url_for('static', filename='about_me.html') }}")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("about-inner").innerHTML = data;
+          document.getElementById("about-container").classList.remove("hidden");
+        });
+    }
+
+    function hideAbout() {
+      document.getElementById("about-container").classList.add("hidden");
+    }
+  </script>
+
+</body>
+</html>

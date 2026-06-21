@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Claim Lost Item</title>
+    <link rel="icon" type="image/png" href="static/logo.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="claim-form-container">
+        <h2>Claim This Item</h2>
+        <form method="POST" action="">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="claimer_name" required>
+
+            <label for="contact_info">Your Contact Info</label>
+            <input type="text" id="contact_info" name="claimer_info" required>
+
+            <label for="reason">Reason for Claiming</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea>
+
+            <button type="submit" id="sb">Submit Claim</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Lost & Found</title>
+  <link rel="icon" type="image/png" href="static/logo.png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-title">LOST & FOUND</div>
+    <div class="right-buttons">
+      <button onclick="showAboutProject()">About Project</button>
+      <button onclick="showAboutMe()">About Me</button>
+      <a href="{{ url_for('logout') }}">⏻Logout</a>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <aside class="sidebar">
+      <h3>Welcome, {{ user_name }}</h3><br>
+      <p><strong>Email:</strong> (Visible only in Post Form) </p><br>
+      <p><strong>Posts:</strong> Lost, Found, Claimed</p><br>
+      <p><strong>Welcome to the Lost & Found Portal</strong></p><br>
+      <p>This platform connects people who have lost items with those who have found them.</p><br>
+      <p>📌 Post an Item</p>
+      <p>📌 Browse Listings</p>
+      <p>📌 Submit a Claim </p>
+      <p>📌 Reunite</p>
+
+      <div class="sidebar-footer">Project by Shubham</div>
+    </aside>
+
+    <section class="feed">
+      <a href="{{ url_for('post_item') }}" id="btnn">+ Post Lost/Found Item</a>
+      <h2 id="lif">Lost Items Feed</h2>
+
+      <div class="items-grid">
+      {% for item in items %}
+      <div class="card">
+        <h3>{{ item.title }}</h3>
+        <p><strong>Status:</strong> {{ item.item_type }}</p>
+        <p>{{ item.description }}</p>
+        {% if item.attachment %}
+        <div class="media-preview">
+          {% if item.attachment.endswith('.mp4') %}
+            <video controls width="250">
+              <source src="{{ url_for('static', filename='uploads/' + item.attachment) }}" type="video/mp4">
+            </video>
+          {% else %}
+            <img src="{{ url_for('static', filename='uploads/' + item.attachment) }}" width="250"/>
+          {% endif %}
+        </div>
+        {% endif %}
+        <p><strong>Contact:</strong> {{ item.contact_number }} / {{ item.contact_email }}</p>
+        <div class="bt">
+        <a href="{{ url_for('claim_item', item_id=item.id) }}" class="claim-btn">claim</a>
+        {% if item.user_id == session['user_id'] %}
+        <a href="{{ url_for('delete', item_id=item.id) }}" class="delete-icon">
+        <img src="{{ url_for('static', filename='del.png') }}" alt="Delete" />
+        </a>
+        {% endif %}
+        </div>
+      </div>
+      {% else %}
+      <p>No lost or found items posted yet.</p>
+      {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <div id="about-container" class="modal hidden">
+    <div id="about-content">
+      <span class="close-btn" onclick="hideAbout()">×</span>
+      <div id="about-inner"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="tagline">Lost & Found Portal - Helping people reconnect with their belongings.</p>
+    <div class="footer-info">
+      <span>Developed by <strong>Shubham Kumar</strong></span>
+      <span class="social-links">
+        <a href="mailto:connect.shubham.work@gmail.com" target="_blank">Email</a> |
+        <a href="https://www.linkedin.com/in/shubhamk0306" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/shub0mb" target="_blank">GitHub</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    function showAboutProject() {
+      fetch("{{ url_for('static', filename='about_project.html') }}")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("about-inner").innerHTML = data;
+          document.getElementById("about-container").classList.remove("hidden");
+        });
+    }
+
+    function showAboutMe() {
+      fetch("{{ url_for('static', filename='about_me.html') }}")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("about-inner").innerHTML = data;
+          document.getElementById("about-container").classList.remove("hidden");
+        });
+    }
+
+    function hideAbout() {
+      document.getElementById("about-container").classList.add("hidden");
+    }
+  </script>
+
+</body>
+</html>
